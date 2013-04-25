@@ -8,7 +8,7 @@ var express = require("express"),
 var app = express();
 
 //connnect to the DB
-var tasksDb = dbConfig.tasksDb;
+var tasksDb = dbConfig.init();
 
 
 app.configure(function(){
@@ -17,9 +17,10 @@ app.configure(function(){
     app.use(express.bodyParser()),
     app.use(express.static(path.join(__dirname, 'public')));
 
+    tasksDAO.configure(tasksDb);
     //configure routes for requests
-	tasksRoutes.configureRoutes(app, tasksDb);
-	tasksDAO.configure(tasksDb);
+	tasksRoutes.configureRoutes(app, tasksDAO);
+	
 });
 
 

@@ -7,20 +7,23 @@ var Server = mongo.Server,
 var server = new Server('localhost', 27017, {auto_reconnect: true});
 db = new Db('taskdb', server, {safe: true});
 
-db.open(function(err, db) {
-    if(!err) {
-        console.log("Connected to 'taskdb' database");
-        db.collection('tasks', {safe:true}, function(err, collection) {
-            //check the count for our collection, if zero then insert sample data
-            collection.find().count(function (err, count){
-            	console.log("count of tasks: "+ count);
-            	if(count == 0){
-            		populateDB();
-            	}
-            })
-        });
-    }
-});
+exports.init = function(){
+	db.open(function(err, db) {
+	    if(!err) {
+	        console.log("Connected to 'taskdb' database");
+	        db.collection('tasks', {safe:true}, function(err, collection) {
+	            //check the count for our collection, if zero then insert sample data
+	            collection.find().count(function (err, count){
+	            	console.log("count of tasks: "+ count);
+	            	if(count == 0){
+	            		populateDB();
+	            	}
+	            })
+	        });
+	    }
+	});
+	return db;
+}
 
 
 ///////////
