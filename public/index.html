@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tasks App </title>
+
+	<link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<h1>Tasks Manager</h1>
+			<h5>Built with Node, Express, Mongo, Twitter Bootstrap and Backbone</h5>
+		</div>
+		<hr/>
+		<section id="tasksApp" class="row-fluid">
+			<header id="header">
+				<form><input id="newTask" type="text" placeholder="What needs to be done?" autofocus></form>
+			</header>
+			<section id="main" class="span-12">
+				<ul id="task-list">
+					<li>this</li>
+					<li>is</li>
+					<li>the</li>
+					<li>tasks-list</li>
+					<li>area</li>
+				</ul>
+			</section>
+		</section>
+	</div>
+
+	<!--TEMPLATES-->
+	<script type="text/template" id="task-template">
+		<div class="view">
+			<label><%- title %></label>
+			<button class="destroy"></button>
+		</div>
+	</script>
+
+	<script src="../assets/js/libs/jquery.js"></script>
+	<script src="../assets/js/libs/underscore-min.js"></script>
+	<script src="../assets/js/libs/backbone.min.js"></script>
+	<script src="../assets/js/libs/bootstrap.js"></script>
+	<script src="../assets/js/libs/bootstrap-typeahead.js"></script>
+
+	<!--Models-->
+	<script src="../assets/js/models/task.js"></script>
+	<!--Collections-->
+	<script src="../assets/js/collections/tasks.js"></script>
+	<!--Views-->
+	<script src="../assets/js/views/taskView.js"></script>
+	<script src="../assets/js/views/appView.js"></script>
+	<!--router-->
+	<script src="../assets/js/routers/router.js"></script>
+	<!--Main App-->
+	<script src="../assets/js/app.js"></script>
+</body>
+</html>
