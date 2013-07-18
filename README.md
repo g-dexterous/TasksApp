@@ -1,4 +1,4 @@
 TasksApp
 ========
 
-A Simple App to learn Node with MongoDB...
+A Simple test App to learn Node with MongoDB.
